@@ -6,6 +6,7 @@
       {{ user.name }}
     </p>
     <p>{{ user.id }}</p>
+    <p>There are {{ catLength }} Categories</p>
     <ul>
       <li v-for="cat in categories" :key="cat">{{ cat }}</li>
     </ul>
@@ -15,10 +16,15 @@
 <script>
 import { mapState } from 'vuex'
 export default {
-  computed: mapState({
-    user: 'user',
-    categories: 'categories'
-  })
+  computed: {
+    catLength() {
+      return this.$store.getters.catLength
+    },
+    ...mapState({
+      user: 'user',
+      categories: 'categories'
+    })
+  }
 }
 </script>
 
