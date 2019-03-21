@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapGetters } from 'vuex'
 export default {
   computed: {
     getEvent() {
@@ -30,6 +30,7 @@ export default {
     catLength() {
       return this.$store.getters.catLength
     },
+    ...mapGetters(['getEventId']),
     ...mapState({
       user: 'user',
       categories: 'categories'

@@ -43,7 +43,7 @@ export default new Vuex.Store({
       return state.todos.length - getters.doneTodos.length
     },
     getEventById: state => id => {
-      return state.events.find(event => event.id == id)
+      return state.events.find(event => event.id === id)
     }
   }
 })
