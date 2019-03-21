@@ -12,15 +12,11 @@
 <script>
 import { mapState } from 'vuex'
 export default {
-  computed: {
-    userName() {
-      console.log(this.$store.state.user)
-      return this.$store.state.user.name
-    },
-    userId() {
-      return this.$store.state.user.id
-    }
-  }
+  computed: mapState({
+    userName: state => state.user.name,
+    userId: state => state.user.id,
+    categories: state => state.categories
+  })
 }
 </script>
 
