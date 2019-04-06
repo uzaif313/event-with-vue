@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Event List Page</h1>
+    <h1>Event for {{user.user.name}}</h1>
     <EventCard v-for="event in events" v-bind:key="event.id" :event="event" />
     <template v-if="page != 1">
       <router-link
@@ -40,7 +40,7 @@ export default {
       return this.eventsTotal > this.page * 3
     },
     ...mapState(['events']),
-    ...mapState(['eventsTotal'])
+    ...mapState(['eventsTotal','user'])
   }
 }
 </script>
